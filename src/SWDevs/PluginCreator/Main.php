@@ -61,12 +61,15 @@ class Main extends PluginBase{
       }
       // Technical Stuff
       $name = $s->getName();
-	  $dir = @mkdir("".$this->getDataFolder()."/".$pname."/src/".$name."");
-	  $file = new Config($dir."config.txt", Config::ENUM);
-	  $code = array(
-	    ""
-	  );
-	  file_put_contents($file,$code);
+      $dir = @mkdir("".$this->getDataFolder()."/".$pname."/src/".$name."");
+      $file = new Config($dir."config.txt", Config::ENUM);
+      $code = array(
+        "<?php",
+        "",
+        "namespace ".$name.";",
+        "",
+      );
+      file_put_contents($file,$code);
     }
     return true;
   }
