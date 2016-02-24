@@ -19,7 +19,7 @@ class Main extends PluginBase{
   public function onCommand(CommandSender $s, Command $cmd, $label, array $args){
     if(strtolwer($cmd->getName() == "crplg")){
       if(!isset($args[0])){
-        $s->sendMessage(C::RED."[ERROR] Argument 1 is Empty! /crplg <help> <page>");
+        $s->sendMessage(C::RED."[ERROR] Argument 1 is Empty! /crplg <help>");
       }else{
         if($s instanceof Player){
           $s->sendMessage(C::RED."[ERROR] CommandSender Is Not an Instanceof ConsoleCommandSender");
@@ -27,10 +27,8 @@ class Main extends PluginBase{
           switch(strtolower($args[0])){
             case "help":
             $s->sendMessage(C::BLUE."<<<<< PLUGIN CREATOR HELP PAGE >>>>>");
-            $s->sendMessage(C::RED."/crplg help <page> - Help Pages");
+            $s->sendMessage(C::RED."/crplg help - Help Page");
             $s->sendMessage(C::RED."/crplg <name of Plugin> <version> <event> <message> - Create a plugin with a message for the specified event.");
-            $s->sendMessage(C::RED."/crplg <name of plugin> <version> <command> <action> <message>");
-            $s->sendMessage(C::RED."/crplg <name of plugin> ");
           }
         }
       }
