@@ -39,12 +39,12 @@ class Main extends PluginBase{
             if(!isset($args[2])){
               $s->sendMessage(C::RED."Please Specify a General PlayerEvent! /crplg <name of Plugin> <version> <event> <message>");
             }else{
-              switch(strtolower($args[2])){
-                case "death":
+              switch($args[2]){
+                case "PlayerJoinEvent":
                 break;
-                case "join":
+                case "PlayerDeathEvent":
                 break;
-                case "quit":
+                case "PlayerQuitEvent":
                 break;
                 default:
                   $s->sendMessage(C::RED."The Entered Argument 2 String is Invalid/Not a General PlayerEvent!");
@@ -62,12 +62,17 @@ class Main extends PluginBase{
       // Technical Stuff
       $name = $s->getName();
       $dir = @mkdir("".$this->getDataFolder()."/".$pname."/src/".$name."");
-      $file = new Config($dir."config.txt", Config::ENUM);
+      $file = new Config($dir."Main.txt", Config::ENUM);
       $code = array(
         "<?php",
-        "",
         "namespace ".$name.";",
+        "use pocketmine\plugin\PluginBase;",
+        "use pocketmine\event\player\".$args[2].";"",
+        "use pocketmine\event\Listener;",
+        "use pocketmine\utils\TextFormat as C;",
+        "class Main extends PluginBase implements Listener{",
         "",
+        "}",
       );
       file_put_contents($file,$code);
     }
