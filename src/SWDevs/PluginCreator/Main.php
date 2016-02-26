@@ -5,7 +5,7 @@ namespace SWDevs\PluginCreator;
 use pocketmine\command\Command;
 use pocketmine\command\CommandSender;
 use pocketmine\plugin\PluginBase;
-use pocketmine\utils\Config as Cfg;
+use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat as C;
 
 class Main extends PluginBase{
@@ -71,7 +71,9 @@ class Main extends PluginBase{
         "use pocketmine\event\Listener;",
         "use pocketmine\utils\TextFormat as C;",
         "class Main extends PluginBase implements Listener{",
-        "",
+        "public function onEnable(){$this->getServer()->getPluginManager()->registerEvents($this, $this);
+$this->getLogger()->info(C::RED."(PluginCreator Plugin) Enabled");
+}",
         "}",
       );
       file_put_contents($file,$code);
