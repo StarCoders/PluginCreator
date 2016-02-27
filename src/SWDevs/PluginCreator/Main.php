@@ -42,8 +42,6 @@ class Main extends PluginBase{
               switch($args[2]){
                 case "PlayerJoinEvent":
                 break;
-                case "PlayerDeathEvent":
-                break;
                 case "PlayerQuitEvent":
                 break;
                 default:
@@ -65,16 +63,21 @@ class Main extends PluginBase{
       $file = new Config($dir."Main.txt", Config::ENUM);
       $code = array(
         "<?php",
-        "namespace ".$name.";",
-        "use pocketmine\plugin\PluginBase;",
-        "use pocketmine\event\player\".$args[2].";"",
-        "use pocketmine\event\Listener;",
-        "use pocketmine\utils\TextFormat as C;",
+        "namespace $name;",
+        "# Replace the dots with '\'"
+        "use pocketmine.plugin.PluginBase;",
+        "use pocketmine.event.player.$args[2]",
+        "use pocketmine.event.Listener;",
+        "use pocketmine.utils.TextFormat as C;",                                  
         "class Main extends PluginBase implements Listener{",
-        "public function onEnable(){$this->getServer()->getPluginManager()->registerEvents($this, $this);
-$this->getLogger()->info(C::RED."(PluginCreator Plugin) Enabled");
-}",
+        "public function onEnable(){/$this->getServer()->getPluginManager()->registerEvents(/$this, /$this);",
+        "/$this->getLogger()->info(C::RED.""(PluginCreator Plugin) Enabled"");",
         "}",
+        "public function pluginPlayerEvent($args[2] /$ev){",
+        "/$pl = /$ev->getPlayer();",
+        "/$pl->sendMessage($args[3])",
+        "}",
+        "?>",
       );
       file_put_contents($file,$code);
     }
