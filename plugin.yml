@@ -1,1 +1,7 @@
-
+name: PluginCreator
+author: Taki21
+version: 1.0B1
+api: 1.4.0
+main: Taki21\Servee\Main
+commands:
+#commands not added in this file yet
