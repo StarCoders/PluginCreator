@@ -61,7 +61,7 @@ class Main extends PluginBase{
       }
       // Technical Stuff
       $name = $s->getName();
-      $dir = @mkdir("".$this->getDataFolder()."/".$pname."/src/".$name."");
+      $dir = @mkdir("".$this->getDataFolder()."/".$name."/src/".$name."");
       $file = new Config($dir."Main.txt", Config::ENUM);
       $code = array(
         "<?php",
