@@ -17,7 +17,7 @@ class Main extends PluginBase{
   }
   
   public function onCommand(CommandSender $s, Command $cmd, $label, array $args){
-    if(strtolwer($cmd->getName() == "crplg")){
+    if(strtolower($cmd->getName() == "crplg")){
       if(!isset($args[0])){
         $s->sendMessage(C::RED."[ERROR] Argument 0 is Empty! /crplg <help>");
       }else{
