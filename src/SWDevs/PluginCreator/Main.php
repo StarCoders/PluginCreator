@@ -54,7 +54,7 @@ class Main extends PluginBase{
             if(!isset($args[3])){
               $s->sendMessage(C::RED."You Must Type an Imploded String for Argument 3!");
             }else{
-              $msg = implode($args, " ");
+              $msg = implode(" ", $args);
             }
           }
         }
