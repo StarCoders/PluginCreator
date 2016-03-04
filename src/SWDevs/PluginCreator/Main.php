@@ -9,6 +9,8 @@ use pocketmine\utils\Config;
 use pocketmine\utils\TextFormat as C;
 
 class Main extends PluginBase{
+
+  define("ERROR", "[ERROR]"); // define the '[ERROR]' prefix.
   
   public function onEnable(){
     $this->getLogger()->info(C::RED."PluginCreator Enabled!");
@@ -19,10 +21,10 @@ class Main extends PluginBase{
   public function onCommand(CommandSender $s, Command $cmd, $label, array $args){
     if(strtolower($cmd->getName() == "crplg")){
       if(!isset($args[0])){
-        $s->sendMessage(C::RED."[ERROR] Argument 0 is Empty! /crplg <help>");
+        $s->sendMessage(C::RED.ERROR." Argument 0 is Empty! /crplg <help>");
       }else{
         if($s instanceof Player){
-          $s->sendMessage(C::RED."[ERROR] CommandSender Is Not an Instanceof ConsoleCommandSender");
+          $s->sendMessage(C::RED.ERROR." CommandSender Is Not an Instanceof ConsoleCommandSender");
         }else{
           switch(strtolower($args[0])){
             case "help":
